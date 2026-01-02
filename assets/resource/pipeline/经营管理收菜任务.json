@@ -1,0 +1,205 @@
+{
+    "异常处理": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            546,
+            622,
+            186,
+            68
+        ]
+    },
+    "经营管理收菜任务": {
+        "recognition": "DirectHit",
+        "next": [
+            "进入经营管理流程",
+            "餐厅任务",
+            "钓鱼任务"
+        ]
+    },
+    "进入经营管理流程": {
+        "recognition": "DirectHit",
+        "next": [
+            "检测是否已在经营页面",
+            "点击经营入口并重试"
+        ]
+    },
+    "检测是否已在经营页面": {
+        "recognition": "OCR",
+        "expected": [
+            "餐馆营业额现状"
+        ],
+        "roi": [
+            424,
+            174,
+            436,
+            374
+        ],
+        "action": "DoNothing",
+        "next": [
+            "餐厅任务",
+            "钓鱼任务"
+        ]
+    },
+    "点击经营入口并重试": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            80,
+            147,
+            61,
+            45
+        ],
+        "post_delay": 5000,
+        "next": [
+            "进入经营管理流程"
+        ]
+    },
+    "餐厅任务": {
+        "recognition": "OCR",
+        "expected": [
+            "餐馆营业额现状"
+        ],
+        "roi": [
+            424,
+            174,
+            436,
+            374
+        ],
+        "action": "Click",
+        "target_offset": [
+            220,
+            -9,
+            -29,
+            16
+        ],
+        "post_delay": 2000,
+        "next": [
+            "结算餐厅奖励",
+            "升级餐厅",
+            "常客笔记"
+        ]
+    },
+    "结算餐厅奖励": {
+        "recognition": "OCR",
+        "expected": [
+            "结算"
+        ],
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "点击结算查看餐厅营业额",
+            "确认结算奖励",
+            "升级餐厅",
+            "常客"
+        ]
+    },
+    "点击结算查看餐厅营业额": {
+        "recognition": "OCR",
+        "roi": [
+            421,
+            137,
+            428,
+            432
+        ],
+        "expected": [
+            "结算"
+        ],
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "确认结算奖励"
+        ]
+    },
+    "确认结算奖励": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            546,
+            622,
+            186,
+            68
+        ],
+        "post_delay": 1000,
+        "repeat": 2,
+        "next": [
+            "[JumpBack]升级餐厅",
+            "常客"
+        ]
+    },
+    "升级餐厅": {
+        "recognition": "OCR",
+        "roi": [
+            413,
+            615,
+            448,
+            92
+        ],
+        "expected": [
+            "下一阶段|升级"
+        ],
+        "action": "Click",
+        "repeat": 2,
+        "post_delay": 2000
+    },
+    "常客": {
+        "recognition": "OCR",
+        "expected": [
+            "常客"
+        ],
+        "action": "Click",
+        "target_offset": [
+            0,
+            -39,
+            -1,
+            19
+        ],
+        "post_delay": 2000,
+        "next": [
+            "常客笔记"
+        ]
+    },
+    "常客笔记": {
+        "recognition": "OCR",
+        "expected": [
+            "常客笔记"
+        ],
+        "action": "Click",
+        "target_offset": [
+            0,
+            -39,
+            -1,
+            19
+        ],
+        "post_delay": 2000,
+        "next": [
+            "常客笔记奖励"
+        ]
+    },
+    "常客笔记奖励": {
+        "recognition": "OCR",
+        "expected": [
+            "全部获得"
+        ],
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "[JumpBack]返回上级菜单",
+            "返回主界面"
+        ]
+    },
+    "钓鱼任务": {
+        "recognition": "OCR",
+        "expected": [
+            "钓鱼"
+        ],
+        "action": "Click",
+        "target_offset": [
+            220,
+            -9,
+            -29,
+            16
+        ],
+        "post_delay": 2000
+    }
+}
