@@ -1,0 +1,337 @@
+{
+  "二次确认白嫖": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "确认购买"
+    ],
+    "post_delay": 1500,
+    "recognition": {
+      "param": {
+        "expected": [
+          "免费1次"
+        ],
+        "roi": [
+          455,
+          243,
+          359,
+          236
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "服装抽抽乐界面": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "[JumpBack]识别可抽取的服装界面",
+      "[JumpBack]检测不到上滑后再次检测-服装",
+      "点击进入装备抽抽乐界面"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "检测不到上滑后再次检测-服装": {
+    "action": {
+      "param": {
+        "begin": [
+          222,
+          422,
+          14,
+          10
+        ],
+        "end": [
+          [
+            209,
+            212,
+            29,
+            21
+          ]
+        ],
+        "end_hold": [
+          200
+        ]
+      },
+      "type": "Swipe"
+    },
+    "max_hit": 10,
+    "post_delay": 400,
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "检测不到上滑后再次检测_装备": {
+    "action": {
+      "param": {
+        "begin": [
+          222,
+          422,
+          14,
+          10
+        ],
+        "end": [
+          [
+            209,
+            212,
+            29,
+            21
+          ]
+        ],
+        "end_hold": [
+          200
+        ]
+      },
+      "type": "Swipe"
+    },
+    "max_hit": 10,
+    "next": [
+      "返回上级菜单"
+    ],
+    "post_delay": 400,
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "检测是否存在免费抽数并抽取": {
+    "action": {
+      "param": {
+        "target": [
+          922,
+          626,
+          108,
+          41
+        ]
+      },
+      "type": "Click"
+    },
+    "next": [
+      "二次确认白嫖"
+    ],
+    "post_delay": 1000,
+    "recognition": {
+      "param": {
+        "expected": [
+          "免费1次|抽1次"
+        ],
+        "roi": [
+          717,
+          561,
+          513,
+          123
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "检测是否成功进入抽抽乐界面": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "focus": {
+      "Node.Action.Failed": "已进入成功进入抽抽乐界面"
+    },
+    "inverse": true,
+    "next": [
+      "进入抽抽乐界面"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "服装抽抽乐"
+        ],
+        "roi": [
+          151,
+          10,
+          157,
+          48
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "每日抽抽乐": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "进入抽抽乐界面"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "点击进入装备抽抽乐界面": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "装备抽抽乐界面"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "装备"
+        ],
+        "roi": [
+          86,
+          252,
+          63,
+          69
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "确认购买": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "跳过抽卡阶段"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "购买"
+        ],
+        "roi": [
+          489,
+          223,
+          305,
+          268
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "装备抽抽乐界面": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "[JumpBack]识别可抽取的服装界面",
+      "[JumpBack]检测不到上滑后再次检测_装备"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "识别可抽取的服装界面": {
+    "action": {
+      "param": {
+        "target_offset": [
+          -98,
+          18,
+          68,
+          12
+        ]
+      },
+      "type": "Click"
+    },
+    "next": [
+      "检测是否存在免费抽数并抽取"
+    ],
+    "pre_wait_freezes": 400,
+    "recognition": {
+      "param": {
+        "connected": true,
+        "lower": [
+          [
+            201,
+            40,
+            30
+          ]
+        ],
+        "roi": [
+          154,
+          155,
+          153,
+          363
+        ],
+        "upper": [
+          [
+            221,
+            60,
+            50
+          ]
+        ]
+      },
+      "type": "ColorMatch"
+    }
+  },
+  "跳过抽卡阶段": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "返回上级菜单"
+    ],
+    "recognition": {
+      "param": {
+        "template": [
+          "跳过按钮.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "repeat": 3
+  },
+  "进入抽抽乐界面": {
+    "action": {
+      "param": {
+        "target": [
+          85,
+          636,
+          41,
+          40
+        ]
+      },
+      "type": "Click"
+    },
+    "next": [
+      "检测是否成功进入抽抽乐界面",
+      "服装抽抽乐界面"
+    ],
+    "post_delay": 400,
+    "recognition": {
+      "param": {
+        "all_of": [
+          {
+            "param": {
+              "expected": [
+                "抽抽乐"
+              ]
+            },
+            "type": "OCR"
+          },
+          {
+            "param": {
+              "template": [
+                "任务红点"
+              ]
+            },
+            "type": "TemplateMatch"
+          }
+        ]
+      },
+      "type": "And"
+    }
+  }
+}

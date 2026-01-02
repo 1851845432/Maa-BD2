@@ -1,0 +1,29 @@
+{
+    "返回主界面": {
+        "recognition": "TemplateMatch",
+        "template": "返回主界面.png",
+        "roi": [
+            1149,
+            2,
+            97,
+            79
+        ],
+        "action": "Click",
+        "pre_delay": 2000,
+        "post_delay": 1000
+    },
+    "返回上级菜单": {
+        "recognition": "TemplateMatch",
+        "template": "返回上级菜单.png",
+        "action": "Click",
+        "target": [
+            -2,
+            11,
+            149,
+            44
+        ],
+        "threshold": 0.4,
+        "pre_delay": 2000,
+        "post_delay": 1000
+    }
+}

@@ -9,11 +9,6 @@
     "version": "1.0.0",
     "controller": [
         {
-            "name": "安卓端",
-            "type": "Adb",
-            "display_short_side": 720
-        },
-        {
             "name": "桌面端",
             "type": "Win32",
             "win32": {
@@ -45,7 +40,32 @@
         },
         {
             "name": "我的小屋",
-            "entry": "日常任务",
+            "entry": "我的小屋签到",
+            "default_check": true
+        },
+        {
+            "name": "测试",
+            "entry": "测试",
+            "default_check": true
+        },
+        {
+            "name": "公会签到",
+            "entry": "开始公会签到任务",
+            "default_check": true
+        },
+        {
+            "name": "街机游戏签到",
+            "entry": "开始街机游戏签到任务",
+            "default_check": true
+        },
+        {
+            "name": "经营管理收菜任务",
+            "entry": "经营管理收菜任务",
+            "default_check": true
+        },
+        {
+            "name": "每日抽抽乐",
+            "entry": "每日抽抽乐",
             "default_check": true
         }
     ],

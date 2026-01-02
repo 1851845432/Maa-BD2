@@ -1,0 +1,10 @@
+{
+    "测试": {
+        "action": "ClickKey",
+        "key": 27,
+        "recognition": {
+            "param": {},
+            "type": "DirectHit"
+        }
+    }
+}
