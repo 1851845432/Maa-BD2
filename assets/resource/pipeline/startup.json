@@ -1,0 +1,160 @@
+{
+    "$__mpe_config_启动游戏": {
+        "$__mpe_code": {
+            "prefix": "",
+            "savedViewport": {
+                "x": 383,
+                "y": -128,
+                "zoom": 1.15
+            },
+            "filename": "启动游戏",
+            "version": "v0.14.1"
+        }
+    },
+    "回到主界面": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 820,
+                "y": 251
+            }
+        },
+        "next": [
+            "TaskCompleted"
+        ]
+    },
+    "EnterGameLoop": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "DoNothing",
+            "param": {}
+        },
+        "max_hit": 3,
+        "$__mpe_code": {
+            "position": {
+                "x": -194,
+                "y": 345
+            }
+        },
+        "next": [
+            "ClickConfirm"
+        ],
+        "on_error": [
+            "LoginTimeoutCheck"
+        ]
+    },
+    "ClickConfirm": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "CONFIRM"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 2000,
+        "focus": {
+            "Node.Recognition.Succeeded": "检测到 CONFIRM，正在点击..."
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 180,
+                "y": 179
+            }
+        },
+        "next": [
+            {
+                "name": "ClickTouchToStart",
+                "jump_back": true
+            }
+        ]
+    },
+    "ClickTouchToStart": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "TOUCH TO START"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 2000,
+        "focus": {
+            "Node.Recognition.Succeeded": "检测到 TOUCH TO START，正在点击..."
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 516,
+                "y": 207
+            }
+        },
+        "next": [
+            "回到主界面"
+        ]
+    },
+    "LoginTimeoutCheck": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "CONFIRM|TOUCH TO START"
+            }
+        },
+        "action": {
+            "type": "StopTask",
+            "param": {}
+        },
+        "focus": {
+            "Node.Recognition.Succeeded": "登录超时：重试次数超限，仍未进入主界面"
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 300,
+                "y": 622
+            }
+        }
+    },
+    "TaskCompleted": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": [
+                    48
+                ]
+            }
+        },
+        "focus": {
+            "Node.Action.Starting": "任务完成，停止运行"
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 1177,
+                "y": 163
+            }
+        }
+    }
+}

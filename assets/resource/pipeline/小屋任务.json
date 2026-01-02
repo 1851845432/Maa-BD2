@@ -1,0 +1,200 @@
+{
+    "$__mpe_config_日常任务": {
+        "$__mpe_code": {
+            "prefix": "",
+            "savedViewport": {
+                "x": -2238,
+                "y": 28,
+                "zoom": 1
+            },
+            "filename": "日常任务",
+            "version": "v0.14.1"
+        }
+    },
+    "日常任务": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": [
+                    48
+                ]
+            }
+        },
+        "post_delay": 400,
+        "$__mpe_code": {
+            "position": {
+                "x": 1741,
+                "y": 277
+            }
+        },
+        "next": [
+            "我的小屋"
+        ]
+    },
+    "我的小屋": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "我的小屋"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": true,
+                "target_offset": [
+                    2,
+                    -44,
+                    -3,
+                    30
+                ]
+            }
+        },
+        "post_delay": 1000,
+        "$__mpe_code": {
+            "position": {
+                "x": 2042,
+                "y": 281
+            }
+        },
+        "next": [
+            "其他小屋"
+        ]
+    },
+    "其他小屋": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "望远镜图标.png"
+                ],
+                "roi": [
+                    80,
+                    140,
+                    66,
+                    51
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 1000,
+        "$__mpe_code": {
+            "position": {
+                "x": 2352,
+                "y": 289
+            }
+        },
+        "next": [
+            "随机小屋"
+        ]
+    },
+    "随机小屋": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "随机"
+                ],
+                "roi": [
+                    153,
+                    130,
+                    94,
+                    37
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 1000,
+        "$__mpe_code": {
+            "position": {
+                "x": 2649,
+                "y": 297
+            }
+        },
+        "next": [
+            "点赞"
+        ]
+    },
+    "点赞": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "点赞图标.png"
+                ],
+                "roi": [
+                    1124,
+                    41,
+                    88,
+                    75
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_delay": 1000,
+        "$__mpe_code": {
+            "position": {
+                "x": 2960,
+                "y": 300
+            }
+        },
+        "next": [
+            "返回主界面"
+        ]
+    },
+    "返回主界面": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": [
+                    27
+                ]
+            }
+        },
+        "repeat": 2,
+        "$__mpe_code": {
+            "position": {
+                "x": 3293,
+                "y": 289
+            }
+        },
+        "next": [
+            "结束任务"
+        ]
+    },
+    "结束任务": {
+        "recognition": {
+            "type": "DirectHit",
+            "param": {}
+        },
+        "action": {
+            "type": "StopTask",
+            "param": {}
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 3655,
+                "y": 312
+            }
+        }
+    }
+}
