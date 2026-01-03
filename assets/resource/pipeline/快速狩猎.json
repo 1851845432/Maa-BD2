@@ -1,0 +1,364 @@
+{
+  "免费火把": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "max_hit": 1,
+    "next": [
+      "圣石洞穴"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "免费米饭": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "max_hit": 1,
+    "next": [
+      "狩猎场"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "圣石洞穴": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "选择属性洞穴"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "圣石洞穴"
+        ],
+        "roi": [
+          79,
+          65,
+          83,
+          291
+        ]
+      },
+      "type": "OCR"
+    },
+    "repeat": 2,
+    "repeat_delay": 500
+  },
+  "快速狩猎": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "进入快速狩猎界面"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "未使用免费火把米饭": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Action.Succeeded": "检测到未使用免费火把米饭，点击使用"
+    },
+    "recognition": {
+      "param": {
+        "lower": [
+          [
+            27,
+            32,
+            40
+          ]
+        ],
+        "roi": [
+          803,
+          233,
+          55,
+          46
+        ],
+        "upper": [
+          [
+            47,
+            52,
+            60
+          ]
+        ]
+      },
+      "type": "ColorMatch"
+    }
+  },
+  "检测是否用完米饭或火把": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "点击+10"
+    ],
+    "recognition": {
+      "param": {
+        "lower": [
+          [
+            46,
+            51,
+            56
+          ]
+        ],
+        "roi": [
+          499,
+          423,
+          282,
+          26
+        ],
+        "upper": [
+          [
+            66,
+            71,
+            76
+          ]
+        ]
+      },
+      "type": "ColorMatch"
+    }
+  },
+  "点击+10": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "expected": [
+          "+10"
+        ],
+        "roi": [
+          406,
+          166,
+          467,
+          389
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "点击快速狩猎": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "确认进入狩猎扫荡界面",
+      "点击快速狩猎"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "快速狩猎"
+        ],
+        "roi": [
+          997,
+          637,
+          198,
+          48
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "狩猎场": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "狩猎场地选择"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "狩猎场地选择": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "点击快速狩猎"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "守山人休息处"
+        ]
+      },
+      "type": "OCR"
+    },
+    "repeat": 2,
+    "repeat_delay": 500
+  },
+  "确认使用免费米饭火把": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "[JumpBack]检测是否用完米饭或火把",
+      "确认狩猎"
+    ],
+    "recognition": {
+      "param": {
+        "lower": [
+          [
+            162,
+            122,
+            32
+          ]
+        ],
+        "roi": [
+          803,
+          233,
+          55,
+          46
+        ],
+        "upper": [
+          [
+            182,
+            142,
+            52
+          ]
+        ]
+      },
+      "type": "ColorMatch"
+    }
+  },
+  "确认扫荡奖励": {
+    "action": {
+      "param": {
+        "target": [
+          574,
+          599,
+          119,
+          32
+        ]
+      },
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "expected": [
+          "REWARD"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "确认狩猎": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "确认扫荡奖励"
+    ],
+    "recognition": {
+      "param": {
+        "roi": [
+          406,
+          166,
+          467,
+          389
+        ],
+        "template": [
+          "快速狩猎/米饭图标.png",
+          "快速狩猎/火把图标.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "确认进入狩猎扫荡界面": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "确认使用免费米饭火把",
+      "[JumpBack]未使用免费火把米饭"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "快速狩猎"
+        ],
+        "roi": [
+          406,
+          166,
+          467,
+          389
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "进入快速狩猎界面": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "[JumpBack]免费米饭",
+      "[JumpBack]免费火把"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "快速狩猎"
+        ],
+        "roi": [
+          994,
+          78,
+          216,
+          145
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "选择属性洞穴": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "点击快速狩猎"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "火之洞穴"
+        ],
+        "roi": [
+          151,
+          77,
+          88,
+          234
+        ]
+      },
+      "type": "OCR"
+    },
+    "repeat": 2
+  }
+}

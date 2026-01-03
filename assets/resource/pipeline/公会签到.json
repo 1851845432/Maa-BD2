@@ -1,51 +1,81 @@
 {
-    "开始公会签到任务": {
-        "recognition": "DirectHit",
-        "next": [
-            "识别并点击公会图标"
-        ]
+  "公会签到任务完成": {
+    "action": {
+      "param": {},
+      "type": "StopTask"
     },
-    "识别并点击公会图标": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            213,
-            70,
-            69,
-            79
-        ],
-        "action": "Click",
-        "template": "公会签到/公会图标.png",
-        "next": [
-            "公会页面返回上级",
-            "识别并点击公会图标"
-        ]
-    },
-    "公会页面返回上级": {
-        "recognition": "TemplateMatch",
-        "template": "公会签到/公会页面图标.png",
-        "roi": [
-            147,
-            8,
-            89,
-            49
-        ],
-        "action": "Click",
-        "target": [
-            4,
-            17,
-            167,
-            53
-        ],
-        "pre_delay": 2000,
-        "post_delay": 1000,
-        "next": [
-            "公会签到任务完成",
-            "公会页面返回上级"
-        ]
-    },
-    "公会签到任务完成": {
-        "recognition": "TemplateMatch",
-        "template": "公会签到/公会图标.png",
-        "action": "StopTask"
+    "recognition": {
+      "param": {
+        "template": "公会签到/公会图标.png"
+      },
+      "type": "TemplateMatch"
     }
+  },
+  "公会页面返回上级": {
+    "action": {
+      "param": {
+        "target": [
+          4,
+          17,
+          167,
+          53
+        ]
+      },
+      "type": "Click"
+    },
+    "next": [
+      "公会签到任务完成",
+      "公会页面返回上级"
+    ],
+    "post_delay": 1000,
+    "pre_delay": 2000,
+    "recognition": {
+      "param": {
+        "roi": [
+          147,
+          8,
+          89,
+          49
+        ],
+        "template": "公会签到/公会页面图标.png"
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "开始公会签到任务": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "识别并点击公会图标"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "识别并点击公会图标": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "公会页面返回上级",
+      "识别并点击公会图标"
+    ],
+    "recognition": {
+      "param": {
+        "green_mask": true,
+        "roi": [
+          213,
+          70,
+          69,
+          79
+        ],
+        "template": "公会签到/公会图标.png"
+      },
+      "type": "TemplateMatch"
+    }
+  }
 }

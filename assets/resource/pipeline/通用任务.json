@@ -16,6 +16,12 @@
         "recognition": "TemplateMatch",
         "template": "返回上级菜单.png",
         "action": "Click",
+        "roi": [
+            3,
+            2,
+            213,
+            55
+        ],
         "target": [
             -2,
             11,
