@@ -27,6 +27,34 @@
       "type": "DirectHit"
     }
   },
+  "免费米饭或免费火把不足": {
+    "action": {
+      "param": {
+        "target": [
+          574,
+          599,
+          119,
+          32
+        ]
+      },
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "expected": [
+          "拥有的免费米饭不足",
+          "拥有的免费火把不足"
+        ],
+        "roi": [
+          411,
+          66,
+          469,
+          113
+        ]
+      },
+      "type": "OCR"
+    }
+  },
   "圣石洞穴": {
     "action": {
       "param": {},
@@ -65,6 +93,22 @@
       "type": "DirectHit"
     }
   },
+  "快速狩猎任务结束": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "focus": {
+      "Node.Action.Succeeded": "快速狩猎任务结束"
+    },
+    "next": [
+      "返回上级菜单"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
   "未使用免费火把米饭": {
     "action": {
       "param": {},
@@ -73,26 +117,30 @@
     "focus": {
       "Node.Action.Succeeded": "检测到未使用免费火把米饭，点击使用"
     },
+    "next": [
+      "确认使用免费米饭火把"
+    ],
     "recognition": {
       "param": {
+        "count": 30,
         "lower": [
           [
-            27,
-            32,
-            40
+            20,
+            25,
+            30
           ]
         ],
         "roi": [
-          803,
-          233,
-          55,
-          46
+          817,
+          264,
+          27,
+          15
         ],
         "upper": [
           [
-            47,
-            52,
-            60
+            40,
+            45,
+            50
           ]
         ]
       },
@@ -110,24 +158,20 @@
     "recognition": {
       "param": {
         "lower": [
-          [
-            46,
-            51,
-            56
-          ]
+          46,
+          51,
+          56
         ],
         "roi": [
-          499,
-          423,
-          282,
-          26
+          756,
+          424,
+          26,
+          25
         ],
         "upper": [
-          [
-            66,
-            71,
-            76
-          ]
+          66,
+          71,
+          76
         ]
       },
       "type": "ColorMatch"
@@ -141,7 +185,7 @@
     "recognition": {
       "param": {
         "expected": [
-          "+10"
+          "\\+10"
         ],
         "roi": [
           406,
@@ -159,8 +203,7 @@
       "type": "Click"
     },
     "next": [
-      "确认进入狩猎扫荡界面",
-      "点击快速狩猎"
+      "确认进入狩猎扫荡界面"
     ],
     "recognition": {
       "param": {
@@ -175,7 +218,8 @@
         ]
       },
       "type": "OCR"
-    }
+    },
+    "repeat": 2
   },
   "狩猎场": {
     "action": {
@@ -221,24 +265,20 @@
     "recognition": {
       "param": {
         "lower": [
-          [
-            162,
-            122,
-            32
-          ]
+          162,
+          122,
+          32
         ],
         "roi": [
-          803,
-          233,
-          55,
-          46
+          817,
+          264,
+          27,
+          15
         ],
         "upper": [
-          [
-            182,
-            142,
-            52
-          ]
+          182,
+          142,
+          52
         ]
       },
       "type": "ColorMatch"
@@ -271,7 +311,8 @@
       "type": "Click"
     },
     "next": [
-      "确认扫荡奖励"
+      "确认扫荡奖励",
+      "免费米饭或免费火把不足"
     ],
     "recognition": {
       "param": {
@@ -295,8 +336,8 @@
       "type": "DoNothing"
     },
     "next": [
-      "确认使用免费米饭火把",
-      "[JumpBack]未使用免费火把米饭"
+      "未使用免费火把米饭",
+      "确认使用免费米饭火把"
     ],
     "recognition": {
       "param": {
@@ -320,7 +361,8 @@
     },
     "next": [
       "[JumpBack]免费米饭",
-      "[JumpBack]免费火把"
+      "[JumpBack]免费火把",
+      "快速狩猎任务结束"
     ],
     "recognition": {
       "param": {
@@ -348,7 +390,7 @@
     "recognition": {
       "param": {
         "expected": [
-          "火之洞穴"
+          "暗之洞穴"
         ],
         "roi": [
           151,

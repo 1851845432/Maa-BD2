@@ -67,6 +67,11 @@
             "name": "每日抽抽乐",
             "entry": "每日抽抽乐",
             "default_check": true
+        },
+        {
+            "name": "快速狩猎",
+            "entry": "快速狩猎",
+            "default_check": true
         }
     ],
     "option": {}

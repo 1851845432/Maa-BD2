@@ -251,26 +251,14 @@
     "recognition": {
       "param": {
         "connected": true,
-        "lower": [
-          [
-            201,
-            40,
-            30
-          ]
-        ],
+        "lower": [201, 40, 30],
         "roi": [
           154,
           155,
           153,
           363
         ],
-        "upper": [
-          [
-            221,
-            60,
-            50
-          ]
-        ]
+        "upper": [221, 60, 50]
       },
       "type": "ColorMatch"
     }
@@ -324,7 +312,7 @@
           {
             "param": {
               "template": [
-                "任务红点"
+                "任务红点.png"
               ]
             },
             "type": "TemplateMatch"
