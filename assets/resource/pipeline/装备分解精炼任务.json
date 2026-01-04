@@ -1,0 +1,586 @@
+{
+  "N级装备筛选": {
+    "action": {
+      "param": {
+        "target": [
+          336,
+          392,
+          36,
+          28
+        ]
+      },
+      "type": "Click"
+    },
+    "next": [
+      "确认筛选结果"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "初始化筛选": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "返回装备界面"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "初始化"
+        ],
+        "roi": [
+          665,
+          520,
+          100,
+          35
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "勾选自动分解": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "确认自动分解已勾选"
+    ],
+    "recognition": {
+      "param": {
+        "lower": [
+          [
+            20,
+            24,
+            30
+          ]
+        ],
+        "roi": [
+          854,
+          464,
+          21,
+          15
+        ],
+        "upper": [
+          [
+            40,
+            44,
+            50
+          ]
+        ]
+      },
+      "type": "ColorMatch"
+    }
+  },
+  "当前为主界面": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "点击进入背包"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "抽抽乐|伙伴|背包"
+        ],
+        "roi": [
+          82,
+          627,
+          687,
+          67
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "当前非主界面": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "focus": {
+      "Node.Action.Succeeded": "当前非主界面，请回到主界面"
+    },
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "成功选取第一件装备": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "确认并进入强化界面",
+      "[JumpBack]选取第一件装备"
+    ],
+    "recognition": {
+      "param": {
+        "lower": [
+          [
+            245,
+            245,
+            217
+          ]
+        ],
+        "roi": [
+          481,
+          98,
+          78,
+          80
+        ],
+        "upper": [
+          [
+            255,
+            255,
+            237
+          ]
+        ]
+      },
+      "type": "ColorMatch"
+    }
+  },
+  "点击一键强化": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "选取第一件装备"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "一键强化"
+        ],
+        "roi": [
+          929,
+          654,
+          127,
+          33
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "点击强化按钮": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "确认强化结果"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "强化"
+        ],
+        "roi": [
+          648,
+          536,
+          98,
+          32
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "点击精炼": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "确认开始精炼"
+    ],
+    "post_delay": 2000,
+    "recognition": {
+      "param": {
+        "expected": [
+          "精炼"
+        ],
+        "roi": [
+          856,
+          465,
+          99,
+          46
+        ]
+      },
+      "type": "OCR"
+    },
+    "repeat": 2
+  },
+  "点击装备筛选": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "装备筛选弹窗",
+      "初始化筛选"
+    ],
+    "recognition": {
+      "param": {
+        "roi": [
+          1069,
+          2,
+          172,
+          93
+        ],
+        "template": [
+          "背包界面/筛选图标.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "repeat": 2
+  },
+  "点击进入背包": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "点击进入装备界面"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "背包"
+        ],
+        "roi": [
+          82,
+          627,
+          687,
+          67
+        ]
+      },
+      "type": "OCR"
+    },
+    "repeat": 2
+  },
+  "点击进入装备界面": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "[JumpBack]装备强化分解任务",
+      "[JumpBack]装备精炼任务",
+      "装备分解与精炼任务结束"
+    ],
+    "recognition": {
+      "param": {
+        "roi": [
+          97,
+          74,
+          39,
+          253
+        ],
+        "template": [
+          "背包界面/装备图标.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "repeat": 2
+  },
+  "确认并进入强化界面": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "装备强化设置界面"
+    ],
+    "recognition": {
+      "param": {
+        "roi": [
+          1061,
+          651,
+          147,
+          38
+        ],
+        "template": [
+          "背包界面/确认勾选图标.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "确认开始精炼": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "返回上级菜单"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "精炼"
+        ],
+        "roi": [
+          933,
+          636,
+          267,
+          54
+        ]
+      },
+      "type": "OCR"
+    },
+    "repeat": 2
+  },
+  "确认强化结果": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "expected": [
+          "确认"
+        ],
+        "roi": [
+          527,
+          496,
+          226,
+          68
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "确认筛选结果": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "点击一键强化"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "确认"
+        ],
+        "roi": [
+          656,
+          505,
+          284,
+          66
+        ]
+      },
+      "type": "OCR"
+    },
+    "repeat": 2
+  },
+  "确认自动分解已勾选": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "点击强化按钮"
+    ],
+    "recognition": {
+      "param": {
+        "lower": [
+          [
+            162,
+            122,
+            31
+          ]
+        ],
+        "roi": [
+          852,
+          464,
+          21,
+          15
+        ],
+        "upper": [
+          [
+            182,
+            142,
+            51
+          ]
+        ]
+      },
+      "type": "ColorMatch"
+    }
+  },
+  "精炼任务_选取第一件装备": {
+    "action": {
+      "param": {
+        "target": [
+          492,
+          113,
+          56,
+          53
+        ]
+      },
+      "type": "Click"
+    },
+    "next": [
+      "点击精炼"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "装备分解与精炼任务结束": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "focus": {
+      "Node.Action.Succeeded": "装备分解与精炼任务结束"
+    },
+    "next": [
+      "返回上级菜单"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "装备分解精炼任务": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "当前为主界面",
+      "当前非主界面"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "装备强化分解任务": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "max_hit": 1,
+    "next": [
+      "点击装备筛选"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "装备强化设置界面": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "勾选自动分解"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "强化设置"
+        ],
+        "roi": [
+          376,
+          137,
+          527,
+          243
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "装备筛选弹窗": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "max_hit": 1,
+    "next": [
+      "N级装备筛选"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "装备筛选"
+        ],
+        "roi": [
+          290,
+          149,
+          696,
+          429
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "装备精炼任务": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "max_hit": 1,
+    "next": [
+      "点击装备筛选"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "返回装备界面": {
+    "action": {
+      "param": {
+        "target": [
+          648,
+          613,
+          88,
+          38
+        ]
+      },
+      "type": "Click"
+    },
+    "next": [
+      "精炼任务_选取第一件装备"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "选取第一件装备": {
+    "action": {
+      "param": {
+        "target": [
+          492,
+          113,
+          56,
+          53
+        ]
+      },
+      "type": "Click"
+    },
+    "next": [
+      "成功选取第一件装备"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  }
+}

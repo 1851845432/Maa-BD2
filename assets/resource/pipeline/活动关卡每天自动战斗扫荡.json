@@ -1,0 +1,481 @@
+{
+  "免费AP不足": {
+    "action": {
+      "param": {
+        "target": [
+          574,
+          599,
+          119,
+          32
+        ]
+      },
+      "type": "Click"
+    },
+    "next": [
+      "活动关卡任务结束"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "活动AP不足"
+        ],
+        "roi": [
+          464,
+          224,
+          340,
+          272
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "开始快速战斗": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "确认快速战斗奖励",
+      "免费AP不足"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "\\*战斗\\*"
+        ],
+        "roi": [
+          644,
+          534,
+          100,
+          36
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "开始手动战斗": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "[JumpBack]未开启自动战斗",
+      "[JumpBack]继续下一次战斗",
+      "免费AP不足"
+    ],
+    "post_wait_freezes": 500,
+    "recognition": {
+      "param": {
+        "expected": [
+          "战斗"
+        ],
+        "roi": [
+          508,
+          634,
+          668,
+          52
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "战斗10次": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "开始快速战斗"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "\\+10"
+        ],
+        "roi": [
+          442,
+          357,
+          397,
+          47
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "未使用免费AP": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Action.Succeeded": "检测到未使用免费AP，点击使用"
+    },
+    "next": [
+      "确认使用AP"
+    ],
+    "recognition": {
+      "param": {
+        "count": 30,
+        "lower": [
+          [
+            20,
+            25,
+            30
+          ]
+        ],
+        "roi": [
+          819,
+          233,
+          23,
+          15
+        ],
+        "upper": [
+          [
+            40,
+            45,
+            50
+          ]
+        ]
+      },
+      "type": "ColorMatch"
+    }
+  },
+  "未开启自动战斗": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "inverse": true,
+    "next": [
+      "点击开启自动战斗"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "自动战斗中"
+        ],
+        "roi": [
+          36,
+          600,
+          128,
+          53
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "活动关卡任务结束": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "focus": {
+      "Node.Action.Succeeded": "活动关卡任务结束"
+    },
+    "next": [
+      "[JumpBack]返回上级菜单",
+      "活动界面返回上级"
+    ],
+    "repeat": 2,
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "活动关卡界面": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "选择战斗模式"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "活动关卡自动战斗": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "进入活动关卡界面"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "活动界面返回上级": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "roi": [
+          81,
+          6,
+          63,
+          54
+        ],
+        "template": [
+          "活动页面返回上级图标.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "点击开启自动战斗": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "post_wait_freezes": 500,
+    "recognition": {
+      "param": {
+        "roi": [
+          849,
+          2,
+          430,
+          79
+        ],
+        "template": [
+          "自动战斗图标.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "点击快速战斗": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "进入快速战斗弹窗",
+      "免费AP不足"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "快速战斗"
+        ],
+        "roi": [
+          508,
+          634,
+          668,
+          52
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "确认使用AP": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "战斗10次"
+    ],
+    "recognition": {
+      "param": {
+        "lower": [
+          [
+            162,
+            122,
+            32
+          ]
+        ],
+        "roi": [
+          819,
+          233,
+          23,
+          15
+        ],
+        "upper": [
+          [
+            182,
+            142,
+            52
+          ]
+        ]
+      },
+      "type": "ColorMatch"
+    }
+  },
+  "确认开始下一次战斗": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "post_wait_freezes": 500,
+    "recognition": {
+      "param": {
+        "expected": [
+          "确认"
+        ],
+        "roi": [
+          425,
+          272,
+          428,
+          171
+        ]
+      },
+      "type": "OCR"
+    },
+    "repeat": 2
+  },
+  "确认快速战斗奖励": {
+    "action": {
+      "param": {
+        "target": [
+          574,
+          599,
+          119,
+          32
+        ]
+      },
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "expected": [
+          "REWARD"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "确认进入活动关卡界面": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "活动关卡界面"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "剧情|普通战斗|挑战战斗|魔兽追踪者"
+        ],
+        "roi": [
+          185,
+          600,
+          760,
+          74
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "继续下一次战斗": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "确认开始下一次战斗"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "前往下一个战斗"
+        ],
+        "roi": [
+          909,
+          653,
+          299,
+          56
+        ]
+      },
+      "type": "OCR"
+    },
+    "repeat": 2
+  },
+  "进入快速战斗弹窗": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "未使用免费AP",
+      "确认使用AP"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "快速战斗"
+        ],
+        "roi": [
+          472,
+          217,
+          338,
+          289
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "进入活动关卡界面": {
+    "action": {
+      "param": {
+        "target": [
+          1045,
+          285,
+          148,
+          55
+        ]
+      },
+      "type": "Click"
+    },
+    "next": [
+      "确认进入活动关卡界面"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "快速狩猎"
+        ],
+        "roi": [
+          994,
+          78,
+          216,
+          145
+        ]
+      },
+      "type": "OCR"
+    },
+    "repeat": 2
+  },
+  "选择战斗模式": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "点击快速战斗",
+      "开始手动战斗"
+    ],
+    "post_delay": 2000,
+    "recognition": {
+      "param": {
+        "expected": [
+          "挑战战斗"
+        ],
+        "roi": [
+          318,
+          603,
+          250,
+          65
+        ]
+      },
+      "type": "OCR"
+    },
+    "repeat": 2
+  }
+}

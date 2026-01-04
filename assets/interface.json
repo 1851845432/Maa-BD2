@@ -44,11 +44,6 @@
             "default_check": true
         },
         {
-            "name": "测试",
-            "entry": "测试",
-            "default_check": true
-        },
-        {
             "name": "公会签到",
             "entry": "开始公会签到任务",
             "default_check": true
@@ -71,8 +66,124 @@
         {
             "name": "快速狩猎",
             "entry": "快速狩猎",
+            "default_check": true,
+            "option": [
+                "免费米饭刷取关卡选择",
+                "免费火把刷取关卡选择"
+            ]
+        },
+        {
+            "name": "活动关卡自动战斗",
+            "entry": "活动关卡自动战斗",
+            "default_check": true
+        },
+        {
+            "name": "装备分解精炼任务",
+            "entry": "装备分解精炼任务",
             "default_check": true
         }
     ],
-    "option": {}
+    "option": {
+        "免费米饭刷取关卡选择": {
+            "label": "免费米饭刷取关卡选择",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "关卡名称",
+                    "description": "请输入希望刷取的关卡名称,默认刷守山人休息处",
+                    "pipeline_type": "string",
+                    "default": "守山人休息处"
+                }
+            ],
+            "pipeline_override": {
+                "狩猎场地选择": {
+                    "recognition": {
+                        "param": {
+                            "expected": [
+                                "{关卡名称}"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "免费火把刷取关卡选择": {
+            "label": "免费火把刷取关卡选择",
+            "type": "select",
+            "description": "选择免费火把刷取的关卡",
+            "default_case": "暗之洞穴",
+            "cases": [
+                {
+                    "name": "暗之洞穴",
+                    "pipeline_override": {
+                        "选择属性洞穴": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "暗之洞穴"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "光之洞穴",
+                    "pipeline_override": {
+                        "选择属性洞穴": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "光之洞穴"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "水之洞穴",
+                    "pipeline_override": {
+                        "选择属性洞穴": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "水之洞穴"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "火之洞穴",
+                    "pipeline_override": {
+                        "选择属性洞穴": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "火之洞穴"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "风之洞穴",
+                    "pipeline_override": {
+                        "选择属性洞穴": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "风之洞穴"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
 }

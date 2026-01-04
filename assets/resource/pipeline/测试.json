@@ -1,10 +1,22 @@
 {
     "测试": {
-        "action": "ClickKey",
-        "key": 27,
-        "recognition": {
+        "action": {
             "param": {},
-            "type": "DirectHit"
+            "type": "Click"
+        },
+        "recognition": {
+            "param": {
+                "expected": [
+                    "精炼"
+                ],
+                "roi": [
+                    945,
+                    653,
+                    238,
+                    35
+                ]
+            },
+            "type": "OCR"
         }
     }
 }
