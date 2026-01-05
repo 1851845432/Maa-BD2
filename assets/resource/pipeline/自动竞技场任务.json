@@ -1,1 +1,338 @@
-{}
+{
+  "仅使用免费鲜血鸡尾酒": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "lower": [
+          [
+            30,
+            34,
+            40
+          ]
+        ],
+        "roi": [
+          380,
+          258,
+          523,
+          62
+        ],
+        "upper": [
+          [
+            30,
+            34,
+            40
+          ]
+        ]
+      },
+      "type": "ColorMatch"
+    }
+  },
+  "是否使用全部免费鲜血鸡尾酒": {
+    "action": {
+      "param": {
+        "target": [
+          655,
+          413,
+          102,
+          25
+        ]
+      },
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "lower": [
+          [
+            56,
+            61,
+            66
+          ]
+        ],
+        "roi": [
+          791,
+          480,
+          39,
+          26
+        ],
+        "upper": [
+          [
+            56,
+            61,
+            66
+          ]
+        ]
+      },
+      "type": "ColorMatch"
+    }
+  },
+  "点击战斗开始": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "自动战斗结束"
+    ],
+    "post_wait_freezes": 3000,
+    "recognition": {
+      "param": {
+        "expected": [
+          ".*战斗开始.*"
+        ],
+        "roi": [
+          596,
+          518,
+          204,
+          41
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "点击玩法游戏卡带": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "点击进入PVP场地"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "玩法游戏卡带"
+        ],
+        "roi": [
+          47,
+          560,
+          666,
+          41
+        ]
+      },
+      "type": "OCR"
+    },
+    "repeat": 2
+  },
+  "点击自动战斗": {
+    "action": {
+      "param": {
+        "target_offset": [
+          10,
+          -29,
+          -22,
+          8
+        ]
+      },
+      "type": "Click"
+    },
+    "next": [
+      "进入自动战斗界面",
+      "点击自动战斗"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "自动战斗"
+        ],
+        "roi": [
+          970,
+          610,
+          82,
+          92
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "点击进入PVP场地": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "点击进入PVP战斗界面"
+    ],
+    "recognition": {
+      "param": {
+        "roi": [
+          47,
+          606,
+          837,
+          81
+        ],
+        "template": [
+          "战场界面/PVP游戏卡带图标.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "repeat": 2
+  },
+  "点击进入PVP战斗界面": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "点击自动战斗"
+    ],
+    "recognition": {
+      "param": {
+        "lower": [
+          [
+            135,
+            0,
+            8
+          ]
+        ],
+        "roi": [
+          411,
+          304,
+          265,
+          224
+        ],
+        "upper": [
+          [
+            155,
+            12,
+            28
+          ]
+        ]
+      },
+      "type": "ColorMatch"
+    }
+  },
+  "离开PVP界面": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "focus": {
+      "Node.Action.Succeeded": "PVP任务结束"
+    },
+    "next": [
+      "不在主界面则返回到主界面"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "离开"
+        ],
+        "roi": [
+          1063,
+          655,
+          154,
+          49
+        ]
+      },
+      "type": "OCR"
+    },
+    "repeat": 2
+  },
+  "自动战斗结束": {
+    "action": {
+      "param": {
+        "target": [
+          567,
+          580,
+          78,
+          35
+        ]
+      },
+      "type": "Click"
+    },
+    "next": [
+      "离开PVP界面"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "反复战斗结果"
+        ],
+        "roi": [
+          469,
+          184,
+          336,
+          343
+        ]
+      },
+      "type": "OCR"
+    },
+    "repeat": 2
+  },
+  "自动竞技场任务": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "[JumpBack]点击进入战场界面",
+      "[JumpBack]点击游戏卡带图标",
+      "点击玩法游戏卡带"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "自动跳过战斗": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "lower": [
+          [
+            29,
+            34,
+            40
+          ]
+        ],
+        "roi": [
+          378,
+          325,
+          522,
+          59
+        ],
+        "upper": [
+          [
+            30,
+            34,
+            40
+          ]
+        ]
+      },
+      "type": "ColorMatch"
+    }
+  },
+  "进入自动战斗界面": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "[JumpBack]仅使用免费鲜血鸡尾酒",
+      "[JumpBack]自动跳过战斗",
+      "[JumpBack]是否使用全部免费鲜血鸡尾酒",
+      "点击战斗开始"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "自动战斗"
+        ],
+        "roi": [
+          370,
+          139,
+          547,
+          431
+        ]
+      },
+      "type": "OCR"
+    }
+  }
+}

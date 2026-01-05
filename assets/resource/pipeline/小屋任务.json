@@ -1,98 +1,151 @@
 {
-    "我的小屋签到": {
-        "recognition": "DirectHit",
-        "next": [
-            "我的小屋"
-        ]
+  "其他小屋": {
+    "action": {
+      "param": {},
+      "type": "Click"
     },
-    "我的小屋": {
-        "recognition": "OCR",
-        "expected": [
-            "我的小屋"
-        ],
-        "action": "Click",
-        "target_offset": [
-            2,
-            -44,
-            -3,
-            30
-        ],
-        "post_delay": 2000,
-        "next": [
-            "其他小屋",
-            "我的小屋"
-        ]
-    },
-    "其他小屋": {
-        "recognition": "TemplateMatch",
+    "next": [
+      "随机小屋",
+      "其他小屋"
+    ],
+    "post_delay": 2000,
+    "recognition": {
+      "param": {
         "roi": [
-            80,
-            140,
-            66,
-            51
+          80,
+          140,
+          66,
+          51
         ],
-        "template": "我的小屋签到/其他小屋图标.png",
-        "action": "Click",
-        "post_delay": 2000,
-        "next": [
-            "随机小屋",
-            "其他小屋"
-        ]
-    },
-    "随机小屋": {
-        "recognition": "OCR",
-        "expected": [
-            "随机"
-        ],
-        "roi": [
-            153,
-            130,
-            94,
-            37
-        ],
-        "action": "Click",
-        "post_delay": 3000,
-        "next": [
-            "点赞",
-            "随机小屋"
-        ]
-    },
-    "点赞": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            1124,
-            41,
-            88,
-            75
-        ],
-        "template": "我的小屋签到/点赞图标.png",
-        "action": "Click",
-        "post_delay": 1000,
-        "next": [
-            "我的小屋页面返回上级",
-            "点赞"
-        ]
-    },
-    "我的小屋页面返回上级": {
-        "recognition": "DirectHit",
-        "action": "Click",
-        "target": [
-            1,
-            7,
-            138,
-            47
-        ],
-        "post_delay": 1000,
-        "next": [
-            "我的小屋任务结束",
-            "我的小屋页面返回上级"
-        ]
-    },
-    "我的小屋任务结束": {
-        "recognition": "OCR",
-        "expected": [
-            "我的小屋"
-        ],
-        "action": "StopTask"
+        "template": "我的小屋签到/其他小屋图标.png"
+      },
+      "type": "TemplateMatch"
     }
+  },
+  "我的小屋": {
+    "action": {
+      "param": {
+        "target_offset": [
+          2,
+          -44,
+          -3,
+          30
+        ]
+      },
+      "type": "Click"
+    },
+    "next": [
+      "其他小屋",
+      "我的小屋"
+    ],
+    "post_delay": 2000,
+    "recognition": {
+      "param": {
+        "expected": [
+          "我的小屋"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "我的小屋任务结束": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "不在主界面则返回到主界面"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "我的小屋"
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "我的小屋签到": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "我的小屋"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "我的小屋页面返回上级": {
+    "action": {
+      "param": {
+        "target": [
+          1,
+          7,
+          138,
+          47
+        ]
+      },
+      "type": "Click"
+    },
+    "next": [
+      "我的小屋任务结束",
+      "我的小屋页面返回上级"
+    ],
+    "post_delay": 1000,
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "点赞": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "我的小屋页面返回上级",
+      "点赞"
+    ],
+    "post_delay": 1000,
+    "recognition": {
+      "param": {
+        "roi": [
+          1124,
+          41,
+          88,
+          75
+        ],
+        "template": "我的小屋签到/点赞图标.png"
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "随机小屋": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "点赞",
+      "随机小屋"
+    ],
+    "post_delay": 3000,
+    "recognition": {
+      "param": {
+        "expected": [
+          "随机"
+        ],
+        "roi": [
+          153,
+          130,
+          94,
+          37
+        ]
+      },
+      "type": "OCR"
+    }
+  }
 }

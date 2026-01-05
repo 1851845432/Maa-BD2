@@ -1,47 +1,4 @@
 {
-  "公会签到任务完成": {
-    "action": {
-      "param": {},
-      "type": "StopTask"
-    },
-    "recognition": {
-      "param": {
-        "template": "公会签到/公会图标.png"
-      },
-      "type": "TemplateMatch"
-    }
-  },
-  "公会页面返回上级": {
-    "action": {
-      "param": {
-        "target": [
-          4,
-          17,
-          167,
-          53
-        ]
-      },
-      "type": "Click"
-    },
-    "next": [
-      "公会签到任务完成",
-      "公会页面返回上级"
-    ],
-    "post_delay": 1000,
-    "pre_delay": 2000,
-    "recognition": {
-      "param": {
-        "roi": [
-          147,
-          8,
-          89,
-          49
-        ],
-        "template": "公会签到/公会页面图标.png"
-      },
-      "type": "TemplateMatch"
-    }
-  },
   "开始公会签到任务": {
     "action": {
       "param": {},
@@ -61,8 +18,8 @@
       "type": "Click"
     },
     "next": [
-      "公会页面返回上级",
-      "识别并点击公会图标"
+      "识别并点击公会图标",
+      "不在主界面则返回到主界面"
     ],
     "recognition": {
       "param": {

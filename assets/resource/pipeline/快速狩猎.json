@@ -102,7 +102,7 @@
       "Node.Action.Succeeded": "快速狩猎任务结束"
     },
     "next": [
-      "返回上级菜单"
+      "不在主界面则返回到主界面"
     ],
     "recognition": {
       "param": {},

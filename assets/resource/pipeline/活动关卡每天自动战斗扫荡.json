@@ -56,7 +56,7 @@
   "开始手动战斗": {
     "action": {
       "param": {},
-      "type": "DoNothing"
+      "type": "Click"
     },
     "next": [
       "[JumpBack]未开启自动战斗",
@@ -176,7 +176,6 @@
       "[JumpBack]返回上级菜单",
       "活动界面返回上级"
     ],
-    "repeat": 2,
     "recognition": {
       "param": {},
       "type": "DirectHit"
@@ -251,7 +250,14 @@
   },
   "点击快速战斗": {
     "action": {
-      "param": {},
+      "param": {
+        "target": [
+          724,
+          650,
+          148,
+          22
+        ]
+      },
       "type": "Click"
     },
     "next": [
@@ -260,17 +266,49 @@
     ],
     "recognition": {
       "param": {
-        "expected": [
-          "快速战斗"
-        ],
-        "roi": [
-          508,
-          634,
-          668,
-          52
+        "all_of": [
+          {
+            "param": {
+              "expected": [
+                "快速战斗"
+              ],
+              "roi": [
+                669,
+                643,
+                239,
+                35
+              ]
+            },
+            "type": "OCR"
+          },
+          {
+            "param": {
+              "lower": [
+                [
+                  222,
+                  218,
+                  210
+                ]
+              ],
+              "roi": [
+                662,
+                632,
+                260,
+                59
+              ],
+              "upper": [
+                [
+                  222,
+                  218,
+                  210
+                ]
+              ]
+            },
+            "type": "ColorMatch"
+          }
         ]
       },
-      "type": "OCR"
+      "type": "And"
     }
   },
   "确认使用AP": {

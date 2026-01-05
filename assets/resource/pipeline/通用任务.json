@@ -29,7 +29,7 @@
     },
     "next": [
       "确认是否在主界面",
-      "[JumpBack]返回上级菜单",
+      "[JumpBack]通用的返回上级",
       "[JumpBack]返回主界面"
     ],
     "recognition": {
@@ -97,7 +97,7 @@
       "type": "DoNothing"
     },
     "post_delay": 1000,
-        "pre_delay": 2000,
+    "pre_delay": 2000,
     "recognition": {
       "param": {
         "expected": [
@@ -112,8 +112,8 @@
       },
       "type": "OCR"
     }
-    },
-    "返回上级菜单": {
+  },
+  "返回上级菜单": {
     "action": {
       "param": {
         "target": [
@@ -130,10 +130,10 @@
     "recognition": {
       "param": {
         "roi": [
-            3,
-            2,
-            213,
-            55
+          3,
+          2,
+          213,
+          55
         ],
         "template": "返回上级菜单.png",
         "threshold": 0.4
@@ -147,7 +147,7 @@
       "type": "Click"
     },
     "post_delay": 1000,
-        "pre_delay": 2000,
+    "pre_delay": 2000,
     "recognition": {
       "param": {
         "roi": [
@@ -160,5 +160,29 @@
       },
       "type": "TemplateMatch"
     }
-    }
+  },
+  "通用的返回上级": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "roi": [
+          -1,
+          12,
+          146,
+          44
+        ],
+        "template": [
+          "通用返回图标.png"
+        ],
+        "threshold": [
+          0.5
+        ]
+      },
+      "type": "TemplateMatch"
+    },
+    "repeat": 2
+  }
 }

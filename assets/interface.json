@@ -81,6 +81,16 @@
             "name": "装备分解精炼任务",
             "entry": "装备分解精炼任务",
             "default_check": true
+        },
+        {
+            "name": "每日自动吸收召集",
+            "entry": "每日自动吸收召集",
+            "default_check": true
+        },
+        {
+            "name": "自动竞技场任务",
+            "entry": "自动竞技场任务",
+            "default_check": true
         }
     ],
     "option": {

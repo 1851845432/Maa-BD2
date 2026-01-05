@@ -76,42 +76,6 @@
       "type": "ColorMatch"
     }
   },
-  "当前为主界面": {
-    "action": {
-      "param": {},
-      "type": "DoNothing"
-    },
-    "next": [
-      "点击进入背包"
-    ],
-    "recognition": {
-      "param": {
-        "expected": [
-          "抽抽乐|伙伴|背包"
-        ],
-        "roi": [
-          82,
-          627,
-          687,
-          67
-        ]
-      },
-      "type": "OCR"
-    }
-  },
-  "当前非主界面": {
-    "action": {
-      "param": {},
-      "type": "DoNothing"
-    },
-    "focus": {
-      "Node.Action.Succeeded": "当前非主界面，请回到主界面"
-    },
-    "recognition": {
-      "param": {},
-      "type": "DirectHit"
-    }
-  },
   "成功选取第一件装备": {
     "action": {
       "param": {},
@@ -249,6 +213,7 @@
       "type": "Click"
     },
     "next": [
+      "点击进入背包",
       "点击进入装备界面"
     ],
     "recognition": {
@@ -447,7 +412,7 @@
       "Node.Action.Succeeded": "装备分解与精炼任务结束"
     },
     "next": [
-      "返回上级菜单"
+      "不在主界面则返回到主界面"
     ],
     "recognition": {
       "param": {},
@@ -460,8 +425,7 @@
       "type": "DoNothing"
     },
     "next": [
-      "当前为主界面",
-      "当前非主界面"
+      "点击进入背包"
     ],
     "recognition": {
       "param": {},

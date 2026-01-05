@@ -1,0 +1,543 @@
+{
+  "不在传送阵": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "进入探索地图界面",
+      "[JumpBack]点击左上角打开地图"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "已经在第一个安全地图": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "通用的返回上级"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "开始执行吸收召集任务": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "[JumpBack]点击第二页技能"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "当前为第一个安全地图界面": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "[JumpBack]已经在第一个安全地图",
+      "[JumpBack]是否存在传送阵图标",
+      "开始执行吸收召集任务"
+    ],
+    "recognition": {
+      "param": {
+        "all_of": [
+          {
+            "param": {
+              "expected": [
+                "安全"
+              ],
+              "roi": [
+                432,
+                626,
+                412,
+                73
+              ]
+            },
+            "type": "OCR"
+          },
+          {
+            "param": {
+              "lower": [
+                [
+                  212,
+                  208,
+                  200
+                ]
+              ],
+              "roi": [
+                174,
+                250,
+                165,
+                201
+              ],
+              "upper": [
+                [
+                  232,
+                  228,
+                  220
+                ]
+              ]
+            },
+            "type": "ColorMatch"
+          }
+        ]
+      },
+      "type": "And"
+    }
+  },
+  "是否存在传送阵图标": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "inverse": false,
+    "recognition": {
+      "param": {
+        "roi": [
+          415,
+          138,
+          512,
+          430
+        ],
+        "template": [
+          "战场界面/传送阵图标.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "是否进入传送界面": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "当前为第一个安全地图界面",
+      "[JumpBack]点击上一页地图"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "移动魔法阵"
+        ],
+        "roi": [
+          61,
+          9,
+          259,
+          60
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "检测是否在传送阵中": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "是否进入传送界面",
+      "[JumpBack]点击可交互图标-手",
+      "[JumpBack]点击可交互图标-叹号"
+    ],
+    "recognition": {
+      "param": {
+        "all_of": [
+          {
+            "param": {
+              "lower": [
+                [
+                  137,
+                  225,
+                  114
+                ],
+                [
+                  138,
+                  210,
+                  221
+                ]
+              ],
+              "roi": [
+                510,
+                298,
+                276,
+                168
+              ],
+              "upper": [
+                [
+                  157,
+                  245,
+                  134
+                ],
+                [
+                  158,
+                  230,
+                  241
+                ]
+              ]
+            },
+            "type": "ColorMatch"
+          },
+          {
+            "param": {
+              "roi": [
+                910,
+                460,
+                343,
+                249
+              ],
+              "template": [
+                "战场界面/可交互图标-手.png"
+              ]
+            },
+            "type": "TemplateMatch"
+          }
+        ]
+      },
+      "type": "And"
+    }
+  },
+  "每日自动吸收召集": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "[JumpBack]点击进入战场界面",
+      "[JumpBack]点击游戏卡带图标",
+      "点击剧情游戏卡"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "点击上一页地图": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "lower": [
+          [
+            212,
+            208,
+            200
+          ]
+        ],
+        "roi": [
+          174,
+          250,
+          165,
+          201
+        ],
+        "upper": [
+          [
+            232,
+            228,
+            220
+          ]
+        ]
+      },
+      "type": "ColorMatch"
+    }
+  },
+  "点击制服技能": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "post_wait_freezes": 1000,
+    "recognition": {
+      "param": {
+        "roi": [
+          987,
+          447,
+          263,
+          263
+        ],
+        "template": [
+          "战场界面/制伏技能图标.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "点击剧情游戏卡": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "选择并点击游戏关卡"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "剧情游戏卡"
+        ],
+        "roi": [
+          53,
+          564,
+          666,
+          43
+        ]
+      },
+      "type": "OCR"
+    },
+    "repeat": 2
+  },
+  "点击召集技能": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "post_delay": 1000,
+    "recognition": {
+      "param": {
+        "green_mask": true,
+        "roi": [
+          981,
+          460,
+          254,
+          246
+        ],
+        "template": [
+          "战场界面/召集技能图标.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "点击可交互图标-叹号": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "roi": [
+          897,
+          552,
+          82,
+          99
+        ],
+        "template": [
+          "战场界面/可交互图标-叹号.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "点击可交互图标-手": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "roi": [
+          910,
+          460,
+          343,
+          249
+        ],
+        "template": [
+          "战场界面/可交互图标-手.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "点击吸收技能": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "点击召集技能"
+    ],
+    "post_delay": 1000,
+    "recognition": {
+      "param": {
+        "green_mask": true,
+        "roi": [
+          986,
+          469,
+          259,
+          232
+        ],
+        "template": [
+          "战场界面/吸收技能.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "点击地图传送阵图标": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "点击第一页技能"
+    ],
+    "post_delay": 1000,
+    "recognition": {
+      "param": {
+        "roi": [
+          142,
+          122,
+          436,
+          412
+        ],
+        "template": [
+          "战场界面/传送阵图标.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "点击左上角打开地图": {
+    "action": {
+      "param": {
+        "target": [
+          102,
+          84,
+          75,
+          56
+        ]
+      },
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    },
+    "repeat": 2
+  },
+  "点击探查技能": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "点击吸收技能"
+    ],
+    "post_delay": 1000,
+    "recognition": {
+      "param": {
+        "roi": [
+          986,
+          458,
+          259,
+          249
+        ],
+        "template": [
+          "战场界面/探查技能.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "点击第一页技能": {
+    "action": {
+      "param": {
+        "target": [
+          1096,
+          653,
+          40,
+          45
+        ]
+      },
+      "type": "Click"
+    },
+    "next": [
+      "点击制服技能"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    },
+    "repeat": 2
+  },
+  "点击第二页技能": {
+    "action": {
+      "param": {
+        "target": [
+          1148,
+          659,
+          33,
+          31
+        ]
+      },
+      "type": "Click"
+    },
+    "next": [
+      "点击探查技能"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "进入探索地图界面": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "点击地图传送阵图标"
+    ],
+    "recognition": {
+      "param": {
+        "expected": [
+          "探索|世界地图"
+        ],
+        "roi": [
+          891,
+          629,
+          312,
+          76
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "选择并点击游戏关卡": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "next": [
+      "检测是否在传送阵中",
+      "[JumpBack]不在传送阵"
+    ],
+    "recognition": {
+      "param": {
+        "roi": [
+          48,
+          599,
+          1185,
+          100
+        ],
+        "template": [
+          "剧情游戏卡/卡带7.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  }
+}
