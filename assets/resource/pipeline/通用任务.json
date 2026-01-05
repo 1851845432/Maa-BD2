@@ -1,35 +1,164 @@
 {
-    "返回主界面": {
-        "recognition": "TemplateMatch",
-        "template": "返回主界面.png",
-        "roi": [
-            1149,
-            2,
-            97,
-            79
+  "不在主界面": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "inverse": true,
+    "post_delay": 1000,
+    "pre_delay": 2000,
+    "recognition": {
+      "param": {
+        "expected": [
+          "抽抽乐|伙伴|背包"
         ],
-        "action": "Click",
+        "roi": [
+          82,
+          627,
+          687,
+          67
+        ]
+      },
+      "type": "OCR"
+    }
+  },
+  "不在主界面则返回到主界面": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "next": [
+      "确认是否在主界面",
+      "[JumpBack]返回上级菜单",
+      "[JumpBack]返回主界面"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "任务结束": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "focus": {
+      "Node.Action.Succeeded": "任务结束"
+    },
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    }
+  },
+  "点击游戏卡带图标": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "roi": [
+          534,
+          633,
+          219,
+          74
+        ],
+        "template": [
+          "战场界面/游戏卡带图标.png"
+        ]
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "点击进入战场界面": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "recognition": {
+      "param": {
+        "expected": [
+          "返回战场"
+        ],
+        "roi": [
+          938,
+          606,
+          248,
+          89
+        ]
+      },
+      "type": "OCR"
+    },
+    "repeat": 2
+  },
+  "确认是否在主界面": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "post_delay": 1000,
         "pre_delay": 2000,
-        "post_delay": 1000
+    "recognition": {
+      "param": {
+        "expected": [
+          "抽抽乐|伙伴|背包"
+        ],
+        "roi": [
+          82,
+          627,
+          687,
+          67
+        ]
+      },
+      "type": "OCR"
+    }
     },
     "返回上级菜单": {
-        "recognition": "TemplateMatch",
-        "template": "返回上级菜单.png",
-        "action": "Click",
+    "action": {
+      "param": {
+        "target": [
+          -2,
+          11,
+          149,
+          44
+        ]
+      },
+      "type": "Click"
+    },
+    "post_delay": 1000,
+    "pre_delay": 2000,
+    "recognition": {
+      "param": {
         "roi": [
             3,
             2,
             213,
             55
         ],
-        "target": [
-            -2,
-            11,
-            149,
-            44
-        ],
-        "threshold": 0.4,
+        "template": "返回上级菜单.png",
+        "threshold": 0.4
+      },
+      "type": "TemplateMatch"
+    }
+  },
+  "返回主界面": {
+    "action": {
+      "param": {},
+      "type": "Click"
+    },
+    "post_delay": 1000,
         "pre_delay": 2000,
-        "post_delay": 1000
+    "recognition": {
+      "param": {
+        "roi": [
+          1149,
+          2,
+          97,
+          79
+        ],
+        "template": "返回主界面.png"
+      },
+      "type": "TemplateMatch"
+    }
     }
 }
