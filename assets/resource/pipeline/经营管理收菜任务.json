@@ -4,6 +4,7 @@
       "param": {},
       "type": "Click"
     },
+    "max_hit": 2,
     "post_delay": 2000,
     "recognition": {
       "param": {
@@ -29,7 +30,7 @@
     "max_hit": 2,
     "next": [
       "已回收过",
-      "成功回收"
+      "成功结算/回收"
     ],
     "recognition": {
       "param": {
@@ -67,6 +68,27 @@
       "type": "OCR"
     }
   },
+  "已结算奖励": {
+    "action": {
+      "param": {},
+      "type": "DoNothing"
+    },
+    "pre_delay": 400,
+    "recognition": {
+      "param": {
+        "expected": [
+          "营业时间经过 10 分钟或以上后即可领取奖励 "
+        ],
+        "roi": [
+          465,
+          55,
+          338,
+          130
+        ]
+      },
+      "type": "OCR"
+    }
+  },
   "常客": {
     "action": {
       "param": {
@@ -79,9 +101,7 @@
       },
       "type": "Click"
     },
-    "next": [
-      "常客笔记"
-    ],
+    "max_hit": 2,
     "post_delay": 2000,
     "recognition": {
       "param": {
@@ -151,7 +171,7 @@
       "type": "OCR"
     }
   },
-  "成功回收": {
+  "成功结算/回收": {
     "action": {
       "param": {
         "target": [
@@ -175,7 +195,8 @@
     },
     "next": [
       "[JumpBack]回收鱼笼",
-      "餐厅任务"
+      "餐厅任务",
+      "[JumpBack]结算餐厅奖励"
     ],
     "recognition": {
       "param": {
@@ -213,53 +234,6 @@
       "type": "DirectHit"
     }
   },
-  "点击结算查看餐厅营业额": {
-    "action": {
-      "param": {},
-      "type": "Click"
-    },
-    "next": [
-      "确认结算奖励"
-    ],
-    "post_delay": 2000,
-    "recognition": {
-      "param": {
-        "expected": [
-          "结算"
-        ],
-        "roi": [
-          421,
-          137,
-          428,
-          432
-        ]
-      },
-      "type": "OCR"
-    }
-  },
-  "确认结算奖励": {
-    "action": {
-      "param": {
-        "target": [
-          546,
-          622,
-          186,
-          68
-        ]
-      },
-      "type": "Click"
-    },
-    "next": [
-      "[JumpBack]升级餐厅",
-      "常客"
-    ],
-    "post_delay": 1000,
-    "recognition": {
-      "param": {},
-      "type": "DirectHit"
-    },
-    "repeat": 2
-  },
   "经营管理收菜任务": {
     "action": {
       "param": {},
@@ -278,17 +252,22 @@
       "param": {},
       "type": "Click"
     },
+    "max_hit": 2,
     "next": [
-      "点击结算查看餐厅营业额",
-      "确认结算奖励",
-      "升级餐厅",
-      "常客"
+      "已结算奖励",
+      "成功结算/回收"
     ],
     "post_delay": 2000,
     "recognition": {
       "param": {
         "expected": [
           "结算"
+        ],
+        "roi": [
+          424,
+          174,
+          436,
+          374
         ]
       },
       "type": "OCR"
@@ -321,9 +300,9 @@
       "type": "Click"
     },
     "next": [
-      "结算餐厅奖励",
       "升级餐厅",
-      "常客笔记"
+      "常客笔记",
+      "常客"
     ],
     "post_delay": 2000,
     "recognition": {

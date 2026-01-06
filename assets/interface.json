@@ -94,6 +94,42 @@
         }
     ],
     "option": {
+        "活动关卡战斗难度选择": {
+            "label": "活动关卡战斗难度选择",
+            "type": "select",
+            "description": "选择活动关卡战斗难度",
+            "default_case": "普通战斗",
+            "cases": [
+                {
+                    "name": "普通战斗",
+                    "pipeline_override": {
+                        "选择战斗模式": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "普通战斗"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "挑战战斗",
+                    "pipeline_override": {
+                        "选择战斗模式": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "挑战战斗"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         "免费米饭刷取关卡选择": {
             "label": "免费米饭刷取关卡选择",
             "type": "input",

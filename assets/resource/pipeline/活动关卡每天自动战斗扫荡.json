@@ -55,7 +55,14 @@
   },
   "开始手动战斗": {
     "action": {
-      "param": {},
+      "param": {
+        "target": [
+          954,
+          652,
+          182,
+          22
+        ]
+      },
       "type": "Click"
     },
     "next": [
@@ -70,10 +77,10 @@
           "战斗"
         ],
         "roi": [
-          508,
-          634,
-          668,
-          52
+          505,
+          612,
+          666,
+          86
         ]
       },
       "type": "OCR"
@@ -173,8 +180,7 @@
       "Node.Action.Succeeded": "活动关卡任务结束"
     },
     "next": [
-      "[JumpBack]返回上级菜单",
-      "活动界面返回上级"
+      "[JumpBack]不在主界面则返回到主界面"
     ],
     "recognition": {
       "param": {},
@@ -262,7 +268,8 @@
     },
     "next": [
       "进入快速战斗弹窗",
-      "免费AP不足"
+      "免费AP不足",
+      "开始手动战斗"
     ],
     "recognition": {
       "param": {
@@ -279,7 +286,8 @@
                 35
               ]
             },
-            "type": "OCR"
+            "recognition": "OCR",
+            "sub_name": "快速战斗文本"
           },
           {
             "param": {
@@ -290,12 +298,7 @@
                   210
                 ]
               ],
-              "roi": [
-                662,
-                632,
-                260,
-                59
-              ],
+              "roi": "快速战斗文本",
               "upper": [
                 [
                   222,
@@ -304,9 +307,10 @@
                 ]
               ]
             },
-            "type": "ColorMatch"
+            "recognition": "ColorMatch"
           }
-        ]
+        ],
+        "box_index": 0
       },
       "type": "And"
     }

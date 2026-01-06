@@ -32,7 +32,7 @@
       "Node.Action.Succeeded": "抽抽乐任务完成"
     },
     "next": [
-      "返回上级菜单"
+      "不在主界面则返回到主界面"
     ],
     "recognition": {
       "param": {},
@@ -153,9 +153,9 @@
     "focus": {
       "Node.Action.Failed": "已进入成功进入抽抽乐界面"
     },
-    "inverse": true,
+    "inverse": false,
     "next": [
-      "进入抽抽乐界面"
+      "服装抽抽乐界面"
     ],
     "recognition": {
       "param": {
@@ -184,6 +184,27 @@
       "param": {},
       "type": "DirectHit"
     }
+  },
+  "点击确认抽取成功": {
+    "action": {
+      "param": {
+        "target": [
+          604,
+          566,
+          147,
+          57
+        ]
+      },
+      "type": "Click"
+    },
+    "next": [
+      "跳过抽卡阶段"
+    ],
+    "recognition": {
+      "param": {},
+      "type": "DirectHit"
+    },
+    "repeat": 2
   },
   "点击进入装备抽抽乐界面": {
     "action": {
@@ -214,7 +235,7 @@
       "type": "Click"
     },
     "next": [
-      "跳过抽卡阶段"
+      "点击确认抽取成功"
     ],
     "recognition": {
       "param": {
@@ -292,7 +313,8 @@
       "type": "Click"
     },
     "next": [
-      "返回上级菜单"
+      "返回上级菜单",
+      "[JumpBack]检测是否成功进入抽抽乐界面"
     ],
     "recognition": {
       "param": {
@@ -318,7 +340,7 @@
     },
     "next": [
       "检测是否成功进入抽抽乐界面",
-      "服装抽抽乐界面"
+      "进入抽抽乐界面"
     ],
     "post_delay": 400,
     "recognition": {

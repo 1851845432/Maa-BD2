@@ -1,0 +1,11 @@
+{
+    "Default": {
+        "rate_limit": 1000,
+        "timeout": 20000,
+        "pre_delay": 240,
+        "post_delay": 400,
+        "on_error": [
+            "不在主界面则返回到主界面"
+        ]
+    }
+}
